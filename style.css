@@ -71,3 +71,16 @@ tfoot {
 }
 
 
+
+/* bloc image du chien */
+
+.image-dog{
+    width: 300px;
+    height: 200px;
+    background-color: #494343;
+    margin: auto;
+    padding: 50px;
+    color: var(--white);
+}
+
+
