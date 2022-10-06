@@ -7,6 +7,20 @@ let coat = document.querySelector('.coat')
 let country = document.querySelector('.country')
 let origin = document.querySelector('.origin')
 let pattern = document.querySelector('.pattern')
+let darkMode = document.querySelector('.dark-mode');
+let verif = false;
+
+// function dark-mode
+darkMode.addEventListener('click' ,  () =>{
+    document.body.classList.toggle('dark-mode' ,verif)
+    if(verif === true){
+        darkMode.textContent('dark-mode')
+
+    } else{
+        darkMode.textContent('white-mode')
+    }
+});
+
 
 
 function getSelectionBreed(i){
@@ -18,11 +32,17 @@ return  petSelect.options[petSelect.selectedIndex].value
 
 }
 
+
+
+// Méthode fetch me permet de récupéré la data
+
 fetch('https://catfact.ninja/breeds?limit=10')
+
+// Permet de renvoyer une réponse en JSON
 .then(reponse => reponse.json())
 .then(reponse => {
 
-
+   
 
 
             reponse.data.forEach(el => {
@@ -38,7 +58,7 @@ fetch('https://catfact.ninja/breeds?limit=10')
                             tr.appendChild(td)
 
 
-                          
+                           console.log(reponse.data);
 
 
                         
