@@ -29,12 +29,8 @@ const setBreed = (res) => {
       // setdata
       setData(event.target, res);
     })
-
   })
-
 }
-
-
 //ajouter country
 const setCountry = (res) => {
   let countries = [];
@@ -50,34 +46,52 @@ const setCountry = (res) => {
     petSelect.appendChild(option);
   })
   petSelect.addEventListener('change', (event) => {
-
     let getTr = document.querySelectorAll('tr');
-
     getTr.forEach(td => td.remove())
-
-
-    
     const filterData = res.data.filter(el => el.country == event.target.value)
     filterData.forEach(data => {
+      let tr = document.createElement('tr');
+      let td = document.createElement('td')
+      tbody.appendChild(tr);
+      tr.appendChild(td);
+      
       h2.textContent = "Breed: " + data.breed;
       coat.textContent = "Coat: " + data.coat
       pays.textContent = "Country: " + data.country;
       origin.textContent = "Origin : " + data.origin;
       pattern.textContent = "Pattern : " + data.pattern;
-      let tr = document.createElement('tr');
-      let td = document.createElement('td')
-      tbody.appendChild(tr);
-      tr.appendChild(td);
-      td.textContent = data.breed
+      td.textContent = data.breed;
+      td.addEventListener('click',(event)=>{
+          //enlever tout les couleurs 
+          let data = document.querySelectorAll('tbody tr td ');
+          data.forEach(el => {
+            el.classList.remove('toogle')
+          })
+          //ensuite les ajouter
+       let breed = res.data.find(breed => breed.breed === event.target.textContent)
+      // findBreed(res)
+          td.classList.add('toogle');
+          h2.textContent = "Breed: " + breed.breed;
+          coat.textContent = "Coat: " + breed.coat
+          pays.textContent = "Country: " +breed.country;
+          origin.textContent = "Origin : " + breed.origin;
+          pattern.textContent = "Pattern : " + breed.pattern;
       })
-
-
-
-
+      })
   })
-
- 
 }
+
+// const findBreed = (el) =>{
+//   tbody.appendChild(tr);
+//   tr.appendChild(td);
+//    let breed = el.data.find(res => res.breed === event.target.textContent)
+//    td.classList.add('toogle');
+//    h2.textContent = "Breed: " + breed.breed;
+//    coat.textContent = "Coat: " + breed.coat
+//    pays.textContent = "Country: " +breed.country;
+//    origin.textContent = "Origin : " + breed.origin;
+//    pattern.textContent = "Pattern : " + breed.pattern;
+// }
 
 const setData = (el, breeds) => {
   let breed = breeds.data.find(breed => breed.breed === el.textContent)
@@ -100,7 +114,6 @@ const setTable = (response) => {
     td.setAttribute('class', 'race-tableau');
     td.textContent = el.breed;
     tr.appendChild(td)
-
     td.addEventListener('click', () => {
       //enlever tout les couleurs 
       let data = document.querySelectorAll('tbody tr td ');
