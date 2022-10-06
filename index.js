@@ -37,7 +37,7 @@ const setBreed = (res) => {
 
 //ajouter country
 const setCountry = (res) => {
-
+  
   res.data.map(countries => {
     let option = document.createElement('option');
     option.setAttribute('value', countries.country);
@@ -52,7 +52,7 @@ const setCountry = (res) => {
         
       h2.textContent = "Breed: " + data.breed;
       coat.textContent = "Coat: " + data.coat
-      country.textContent = "Country: " + data.country;
+      country.textContent = "Country: " + data.country+"_"+index;
       origin.textContent = "Origin : " + data.origin;
       pattern.textContent = "Pattern : " + data.pattern;
     })
