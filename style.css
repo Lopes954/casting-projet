@@ -17,8 +17,8 @@ header{
     display: flex;
     width: 100%;
     background-color: var(--orange);
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
 }
 
 /* dark-mode  */
@@ -50,7 +50,7 @@ body.dark{
 ul li{
     color: #000000;
     display: inline;
-    /* margin-left: 30px; */
+    margin-left: 30px;
     
 }
 a{
@@ -166,6 +166,7 @@ tfoot {
 
 
 
+
 /* page acceuil */
 
 .acceuil{
@@ -203,6 +204,10 @@ tfoot {
     font-weight: 900;
 }
 
+.nav{
+    display: none;
+}
+
 
 .select{
 
@@ -226,17 +231,23 @@ option{
     color: white;
 }
 
-.burger{
 
-    width: 100px;
-    height: 100px;
-    background-color: var(--orange);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
+
+@media screen and (max-width:500px) {
+
+
+    .burger{
+        width: 100px;
+        height: 100px;
+        background-color: var(--orange);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    
 .ligne{
 
     width: 45px;
@@ -246,19 +257,13 @@ option{
 }
 
 
-@media screen and (max-width:500px) {
-
     .ul{
         display: none;
     }
 
     .dark-toggle{
-
         display: none;
-
     }
-
-   
 
     .nav{
         display: none;
@@ -266,21 +271,14 @@ option{
         align-items: center;
     }
 
-
     .ul-burger {
-
         display: flex;
         flex-direction: column;
     }
 
     nav ul li{
-
         margin: 0.5em;
     }
-  
-
-    
-    
 }
 
 
