@@ -10,6 +10,8 @@ let pattern = document.querySelector('.pattern');
 let tableBreed = [];
 let tableCountry = [];
 const tableData = [];
+const selectPelage = document.querySelector('.pelage');
+const span = document.querySelector('#span')
 // ameliorer les nom des var et des func ( el)
 const setBreed = (res) => {
   res.data.map(breed => {
@@ -31,11 +33,59 @@ const setBreed = (res) => {
     })
   })
 }
+
+const setCoats = (res) => {
+  const tableCoats = [];
+  res.data.forEach(el => {
+    if (!tableCoats.find(coat => coat === el.coat)) {
+      tableCoats.push(el.coat)
+    }
+  })
+  tableCoats.forEach(el =>{
+    let option = document.createElement('option');
+    option.setAttribute('value', el);
+    option.textContent = el;
+    selectPelage.appendChild(option);
+  })
+  selectPelage.addEventListener('change',(event) =>{
+    let getTr = document.querySelectorAll('tr');
+    getTr.forEach(td=> td.remove());
+    const filterCoat = res.data.filter(el => el.coat === event.target.value);
+    filterCoat.forEach(data =>{
+      let tr = document.createElement('tr');
+      let td = document.createElement('td')
+      tbody.appendChild(tr);
+      tr.appendChild(td);
+      td.textContent = data.breed;
+        let countTd = document.querySelectorAll('td');
+        span.textContent = countTd.length + "  " + "resultat";
+      td.addEventListener('click', (event) => {
+        //enlever tout les couleurs 
+        let data = document.querySelectorAll('tbody tr td ');
+        data.forEach(el => {
+          el.classList.remove('toogle')
+        })
+        //ensuite les ajouter
+        let breed = res.data.find(breed => breed.breed === event.target.textContent)
+        // findBreed(res)
+        td.classList.add('toogle');
+        h2.textContent = "Breed: " + breed.breed;
+        coat.textContent = "Coat: " + breed.coat
+        pays.textContent = "Country: " + breed.country;
+        origin.textContent = "Origin : " + breed.origin;
+        pattern.textContent = "Pattern : " + breed.pattern;
+      })
+    })
+  })
+
+
+
+}
 //ajouter country
 const setCountry = (res) => {
   let countries = [];
-  res.data.forEach(breed =>{
-    if(!countries.find(country => country === breed.country)){
+  res.data.forEach(breed => {
+    if (!countries.find(country => country === breed.country)) {
       countries.push(breed.country)
     }
   })
@@ -54,30 +104,26 @@ const setCountry = (res) => {
       let td = document.createElement('td')
       tbody.appendChild(tr);
       tr.appendChild(td);
-      
-      h2.textContent = "Breed: " + data.breed;
-      coat.textContent = "Coat: " + data.coat
-      pays.textContent = "Country: " + data.country;
-      origin.textContent = "Origin : " + data.origin;
-      pattern.textContent = "Pattern : " + data.pattern;
       td.textContent = data.breed;
-      td.addEventListener('click',(event)=>{
-          //enlever tout les couleurs 
-          let data = document.querySelectorAll('tbody tr td ');
-          data.forEach(el => {
-            el.classList.remove('toogle')
-          })
-          //ensuite les ajouter
-       let breed = res.data.find(breed => breed.breed === event.target.textContent)
-      // findBreed(res)
-          td.classList.add('toogle');
-          h2.textContent = "Breed: " + breed.breed;
-          coat.textContent = "Coat: " + breed.coat
-          pays.textContent = "Country: " +breed.country;
-          origin.textContent = "Origin : " + breed.origin;
-          pattern.textContent = "Pattern : " + breed.pattern;
+      let countBreed = document.querySelectorAll('td');
+      span.textContent = countBreed.length + "  " + "resultat";
+      td.addEventListener('click', (event) => {
+        //enlever tout les couleurs 
+        let data = document.querySelectorAll('tbody tr td ');
+        data.forEach(el => {
+          el.classList.remove('toogle')
+        })
+        //ensuite les ajouter
+        let breed = res.data.find(breed => breed.breed === event.target.textContent)
+        // findBreed(res)
+        td.classList.add('toogle');
+        h2.textContent = "Breed: " + breed.breed;
+        coat.textContent = "Coat: " + breed.coat
+        pays.textContent = "Country: " + breed.country;
+        origin.textContent = "Origin : " + breed.origin;
+        pattern.textContent = "Pattern : " + breed.pattern;
       })
-      })
+    })
   })
 }
 
@@ -102,7 +148,6 @@ const setData = (el, breeds) => {
   pattern.textContent = "Pattern : " + breed.pattern;
 }
 const setTable = (response) => {
-
   response.data.map(el => {
     let option = document.createElement('option');
     option.setAttribute('value', el.country)
@@ -144,6 +189,7 @@ fetch('https://catfact.ninja/breeds?limit=10')
     setBreed(reponse);
     // getCountry(reponse);
     setCountry(reponse)
+    setCoats(reponse)
 
   })
 

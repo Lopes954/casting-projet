@@ -183,6 +183,27 @@ tfoot {
 }
 
 
+.select{
+
+    display: flex;
+    flex-direction: column;
+}
+option{
+
+    width: 50%;
+}
+
+
+.orangep{
+
+    color: var(--orange);
+}
+
+
+#span{
+
+    color: white;
+}
 
 
 
