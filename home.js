@@ -7,7 +7,6 @@ const  ul =document.querySelector('nav ul ');
 let validate = false ;
 let dark = document.querySelector('header button');
 
-console.log(dark);
 
 burger.addEventListener('click',() => {
          
