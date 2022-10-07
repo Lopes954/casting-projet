@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,68 +8,54 @@
   <link rel="stylesheet" href="style.css">
   <title>race</title>
 </head>
+
+
 <body class="light">
-
     <!-- Header -->
-
-    <header>
-        <h2 class="logo">Casting</h2>
-
-        <ul>
-            <li><a href="acceuil.html".html">acceuil</a></li>
-            <li><a href="annecdote.html">annecdote</a></li>
-            <li><a href="index.html">races</a></li>
-            
-        </ul>
-
-        <button  class="dark-toggle">DarkMode</button>
-        
-    </header>
-
-
-    <main>
-
-        <section class="information">
-
-            <label for="name">Race:</label>
-            <input type="text" id="name" name="name">
-
-            <select name="pets" id="pet-select">
-                <option value="">select</option>
-                
-            </select>
-            <table>
-                <thead>
-                    <tr class="tableau-title">
-                        <th colspan="2">Tableau des races et des service disponible</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    
-                </tbody>
-            </table>
-
-
-        </section>
-
-        <section class="img">
-            <div class="image-dog">
-                <h2 class="h2"> </h2>
-                <p class="coat"></p>
-                <p class="country"></p>
-                <p class="origin"></p>
-                <p class="pattern"></p>
-
-            </div>
-        </section>
-
-
-
-    </main>
-
-
+  <header>
+    <h2 class="logo">Casting</h2>
+    <ul>
+      <li><a href="acceuil.html">acceuil</a></li>
+      <li><a href="annecdote.html">annecdote</a></li>
+      <li><a href="index.html">races</a></li>
+    </ul>
+    <button  class="dark-toggle">DarkMode</button>
+</header>
+  <main>
+    <section class="information">
+      <p class="orangep">Races :<span id="span"></span></p>
+      <div class="select">
+        <select name="pets" id="pet-select">
+          <option value="">Par pays</option>
+        </select>
+        <select name="pelage" class="pelage">
+          <option value="">Par pelage</option>
+        </select>
+      </div>
+      <table>
+        <thead>
+          <tr class="tableau-title">
+            <th colspan="2">Tableau des races et des service disponible</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </section>
+    <section class="img">
+      <div class="image-dog">
+        <h2 class="h2"> </h2>
+        <p class="coat"></p>
+        <p class="country"></p>
+        <p class="origin"></p>
+        <p class="pattern"></p>
+      </div>
+    </section>
+  </main>
 </body>
+
 <script src="dark.js"></script>
 
 <script src="index.js"></script>
+
 </html>
