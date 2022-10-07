@@ -1,7 +1,12 @@
 :root {
     --orange: #ec7b58;
     --white: #ffffff;
-   
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -14,8 +19,6 @@ header{
     background-color: var(--orange);
     align-items: center;
     justify-content: space-between;
-    
-
 }
 
 /* dark-mode  */
@@ -44,11 +47,10 @@ body.dark{
     color: var(--white)
 }
 
-
 ul li{
     color: #000000;
     display: inline;
-    margin-left: 30px;
+    /* margin-left: 30px; */
     
 }
 a{
@@ -61,15 +63,14 @@ a{
 
 
 
-    
-
-
-
 /* main */
 
 main{
-    width: 100%;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 3em;
 }
 
 .information{
@@ -168,12 +169,18 @@ tfoot {
 /* page acceuil */
 
 .acceuil{
-    display: flex;
+    /* display: flex;
     padding: 50px;
     margin: auto;
     justify-content: center;
     gap: 20px;
+    flex-wrap: wrap; */
+
+    display: flex;
     flex-wrap: wrap;
+    /* margin: 2em; */
+
+    
 
 }
 
@@ -182,8 +189,9 @@ tfoot {
     background-color: #000000;
     color: #fff;
     text-align: center;
-    padding: 20px;
+    padding-bottom: 2em;
     border-radius: 10px;
+    margin: 1em;
    
 
 }
@@ -218,6 +226,62 @@ option{
     color: white;
 }
 
+.burger{
+
+    width: 100px;
+    height: 100px;
+    background-color: var(--orange);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.ligne{
+
+    width: 45px;
+    background-color: white;
+    height: 5px;
+    margin: 0.5em;
+}
+
+
+@media screen and (max-width:500px) {
+
+    .ul{
+        display: none;
+    }
+
+    .dark-toggle{
+
+        display: none;
+
+    }
+
+   
+
+    .nav{
+        display: none;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .ul-burger {
+
+        display: flex;
+        flex-direction: column;
+    }
+
+    nav ul li{
+
+        margin: 0.5em;
+    }
+  
+
+    
+    
+}
 
 
 

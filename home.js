@@ -1,8 +1,30 @@
 let ac = document.querySelector('.result-bloc-anecdote');
 let races = document.querySelector('.result-bloc-race');
 let favoris = document.querySelector('.result-bloc-favoris');
+const burger = document.querySelector('.burger');
+const nav = document.querySelector('nav');
+const  ul =document.querySelector('nav ul ');
+let validate = false ;
+let dark = document.querySelector('header button');
 
+console.log(dark);
 
+burger.addEventListener('click',() => {
+         
+                if(validate === false){
+                    validate = true
+                    nav.style.display = "flex";
+                    dark.style.display ='block'
+                    ul.appendChild(dark)
+                        
+                } else if(validate === true){
+
+                    nav.style.display ="none";
+                    dark.style.display = 'none'
+
+                    validate = false
+                }
+})
 const setFavoris = (res) => {
     let tableCoats = [];
     res.data.filter(coats => tableCoats.push(coats.coat));
