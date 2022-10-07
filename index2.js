@@ -10,6 +10,7 @@ let pattern = document.querySelector('.pattern');
 let tableBreed = [];
 let tableCountry = [];
 const tableData = [];
+
 const selectPelage = document.querySelector('.pelage');
 const span = document.querySelector('#span')
 // ameliorer les nom des var et des func ( el)
