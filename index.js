@@ -10,6 +10,10 @@ let pattern = document.querySelector('.pattern');
 let tableBreed = [];
 let tableCountry = [];
 const tableData = [];
+
+
+
+
 // ameliorer les nom des var et des func ( el)
 const setBreed = (res) => {
   res.data.map(breed => {
